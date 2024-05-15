@@ -1,0 +1,286 @@
+customization: 
+  distribution_code_name: Weasel
+  distribution_version: 0.15.0.0
+  generator: "Weasel: :UIStyleSettings"
+  modified_time: "Wed Jan 17 09: 11:49 2024"
+  rime_version: 1.8.5
+# [app_options]针对特定应用的设置
+# app_options:
+#   cmd.exe: # 带 .exe 的进程名：Weasel 15.0 及之前版本须小写; PR #1049 合并后释出的版本大小写不敏感
+#     ascii_mode: true # 英文模式
+#   conhost.exe:
+#     ascii_mode: true # false非英文模式，true英文模式
+# [End of <app_options>]
+
+# [global settings]
+# "show_notifications": true # 是否显示状态变化（方案内的开头 option ）的通知：true；false
+# "show_notifications_time": 1200 # 通知显示的时间，单位 ms
+# "global_ascii": false # 切换为 ascii 模式时，是否影响所有窗口：true；false
+# [End of <global settings>]
+patch: 
+  "show_notifications": true # 是否显示状态变化（方案内的开头 option ）的通知：true；false
+  "show_notifications_time": 1200 # 通知显示的时间，单位 ms
+  "global_ascii": false # 切换为 ascii 模式时，是否影响所有窗口：true；false
+
+# [style]字体；候选项、候选窗口的行为、布局及样式
+  "style/color_scheme": Win11_dark # 這項用於選中下面定義的新方案，浅色模式
+  # "style/color_scheme_dark": Win11_dark # 深色模式，0.15.0版本目前不生效
+
+  "style/font_face": "Microsoft YaHei UI" # 全局字体，格式：字体1:起始码位:结束码位:字重:字形,字体2……，字体会依次fallback。详细设定请参考 <https://github.com/rime/weasel/wiki/字體設定>。例："Segoe UI Emoji:30:39, Segoe UI Emoji:23:23, Segoe UI Emoji:2a:2a, Microsoft YaHei, SF Pro, Segoe UI Emoji, Noto Color Emoji"
+  "style/label_font_face": "Microsoft YaHei UI" # 序号（标签）字体
+  "style/comment_font_face": "Microsoft YaHei UI" # 注释字体
+  "style/font_point": 12 # 全局字体字号
+  "style/label_font_point": 10 # 标签字体字号，不设定 fallback 到 font_point
+  "style/comment_font_point": 10 # 注释字体字号，不设定 fallback 到 font_point
+
+  "style/inline_preedit": true # 行内显示预编辑区：true；false
+  "style/preedit_type": composition # 预编辑区内容：composition（编码）； preview（选中的候选）；preview_all（全部候选）
+
+  "style/fullscreen": false # 候选窗口全屏显示：true；false
+  "style/horizontal": true # 候选项横排：true；false
+  "style/vertical_text": false # 竖排文本：true；false
+  "style/text_orientation": horizontal # 文本排列方向，效果和 `vertical_text` 相同：horizontal；vertical
+  "style/vertical_text_left_to_right": false # 竖排方向是否从左到右：true；false
+  "style/vertical_text_with_wrap": false # 文本竖排模式下，自动换行：true；false
+  "style/vertical_auto_reverse": false # 文本竖排模式下，候选窗口位于光标上方时倒序排列：true；false
+
+  "style/label_format": "%s" # 标签字符：例如 %s. 效果为 1. 2. 3. ....
+  "style/mark_text": "|" # 标记字符，显示在选中的候选标签前，需要在配色方案中指定颜色；如该项为空字符串 "" 而配色方案中 hilited_mark_color 非透明色，则显示 Windows 11 输入法风格标记
+  "style/ascii_tip_follow_cursor": false # 切换 ASCII 模式时，提示跟随鼠标，而非输入光标
+  "style/display_tray_icon": false # 托盘显示独立于语言栏的额外图标：true；false
+  "style/antialias_mode": default # 次像素反锯齿设定：default；force_dword；cleartype；grayscale；aliased
+  "style/candidate_abbreviate_length": 30 # 候选项略写，超过此数字则用省略号代替。设置为 0 则不启用此功能
+  "style/mouse_hover_ms": 0 # 鼠标悬停选词响应时间（ms），设置为 0 时禁用该功能
+  "style/paging_on_scroll": true # 在候选窗口上滑动滚轮的行为：true（翻页）；false （选中下一个候选）
+  "style/click_to_capture": false # 鼠标点击候选项，创建截图：true；false
+
+  "style/layout/enhanced_position": true # 无法定位候选框时，在窗口左上角显示候选框：true；false
+  "style/layout/align_type": center # 标签、候选文字、注解文字之间的相对对齐方式：top ; center ; bottom
+  "style/layout/max_width": 0 # 候选框最大宽度，文本竖排模式下如高度超此尺寸则换列显示候选，设置为 0 不启用此功能
+  "style/layout/min_width": 10 # 候选框最小宽度
+  "style/layout/min_height": 0 # 候选框最小高度
+  "style/layout/max_height": 600 # 候选框最大高度，horizontal 布局如宽超此尺寸则换行显示候选，设置为 0 不启用此功能
+  "style/layout/border_width": 0 # 边框宽度；又名 border
+  "style/layout/margin_x": 8 # 主体元素和候选框的左右边距；为负值时，不显示候选框
+  "style/layout/margin_y": 8 # 主体元素的上下边距；为负值时，不显示候选框
+  "style/layout/spacing": 0 # inline_preedit 为否时，编码区域和候选区域的间距
+  "style/layout/candidate_spacing": 20 # 候选项之间的间距
+  "style/layout/hilite_spacing": 10 # 候选项和相应标签的间距
+  "style/layout/hilite_padding": 6 # 高亮区域和内部文字的间距，影响高亮区域大小。若想候选字背景色块无边界填充候选框，仅需其高度和候选字上下边距一致即可
+  "style/layout/hilite_padding_x": 8 # 高亮区域和内部文字的左右间距，如无特殊指定则依 hilite_padding 设置
+  "style/layout/hilite_padding_y": 8 # 高亮区域和内部文字的上下间距，如无特殊指定则依 hilite_padding 设置
+  "style/layout/shadow_radius": 8 # 阴影区域半径，为 0 不显示阴影；需要同时在配色方案中指定非透明的阴影颜色
+  "style/layout/shadow_offset_x": 4 # 阴影左右偏移距离
+  "style/layout/shadow_offset_y": 4 # 阴影上下偏移距离
+  "style/layout/corner_radius": 10 # 候选窗口圆角半径
+  "style/layout/round_corner": 10 # 候选背景色块圆角半径，又名 hilited_corner_radius
+  # "style/layout/type": vertical # 布局设置，效果和style下的设置相同：horizontal（横向）；vertical（竖向） ; vertical_text（竖排文本） ; vertical+fullscreen（全屏） ; horizontal+fullscreen（横向全屏）
+  # "style/layout/surrounding_extra_expansion": 0 # 候选项背景相对大小，macos软件选项
+  # "style/layout/shadow_size": 0 # 阴影大小，macos软件选项
+  # "style/layout/base_offset": 0 # 字基高，macos软件选项
+  # "style/layout/alpha": 2 # 透明度，macos软件选项
+  # "style/layout/line_spacing": 4 # 行间距，macos软件选项
+# [End of <style>]
+
+# [preset_color_schemes]
+# 配色设定
+# 在小狼毫用户目录新建 preview 文件夹，将自定义皮肤的截图重命名为 color_scheme_<name>.png 放入此文件夹，可以在「输入法设定」中看到自定义皮肤效果
+# 小狼毫配色在线设计：
+# [RIME 西米](https://fxliang.github.io/RimeSeeMe/)
+# [润笔](https://pdog18.github.io/rime-soak/#/theme)
+
+  "preset_color_schemes/Win11_dark": 
+    # Win11: # 在 `style/color_schema` 指定的配色方案值
+    name: LikeWin11_dark # 方案设置中显示的配色名称
+    author: NewXYe # 配色作者名称
+    color_format: rgba # 颜色格式：argb（0xaarrggbb）；rgba（0xrrggbbaa）；abgr（0xaabbggrr 默认
+    # 默认配色
+    text_color: 0xFFFFFF # 文字颜色
+    shadow_color: 0x2C2C2C # 候选窗阴影色，默认全透明（无阴影）
+    label_color: 0x808080 # 标签颜色
+    comment_text_color: 0x808080 # 注释颜色
+    border_color: 0x2C2C2C # 候选窗边框颜色
+    back_color: 0x2C2C2C # 背景颜色
+
+    # 普通候选项配色
+    # candidate_back_color: 0x2C2C2C # 非高亮候选背景颜色
+    # candidate_border_color:  # 边框
+    # candidate_shadow_color: 0x000000 # 阴影
+    candidate_text_color: 0xFFFFFF # 非高亮候选文字颜色
+
+    # 编码区域配色
+    hilited_text_color: 0xE8E8E8 # 编码文字颜色
+    # hilited_back_color: 0xd4d4d4 # 编码背景颜色
+    # hilited_shadow_color: 0x000000 # 编码背景块阴影颜色
+
+    # 选中的候选区域配色
+    # hilited_mark_color: 0xD7B69C # 标签前的标记
+    hilited_label_color: 0xF0DE36 # 选中的标签颜色
+    # hilited_comment_text_color: 0xBF616A # 注释
+    hilited_candidate_text_color: 0xFFFFFF # 高亮候选文字颜色
+    # hilited_candidate_border_color: 0x8FBCBB # 边框
+    hilited_candidate_back_color: 0x383838 # 高亮候选背景颜色
+    # hilited_candidate_shadow_color: 0x000000 # 高亮候选背景块阴影颜色
+    # inline_preedit: false # false 时翻页箭头颜色，不设置则不显示箭头
+    # nextpage_color: 0xFFFFFF # 下一页
+    # prevpage_color: 0x606060 # 上一页
+    # candidate_format: "%c %@ " # 编号 %c 和候选词 %@ 前后的空间
+
+  "preset_color_schemes/Win11_light": 
+    # Win11: # 在 `style/color_schema` 指定的配色方案值
+    name: likeWin11_dark # 方案设置中显示的配色名称
+    author: NewXYe # 配色作者名称
+    color_format: rgba # 颜色格式：argb（0xaarrggbb）；rgba（0xrrggbbaa）；abgr（0xaabbggrr 默认
+    # 默认配色
+    text_color: 0x000000 # 文字颜色
+    shadow_color: 0xDEDEDE # 候选窗阴影色，默认全透明（无阴影）
+    label_color: 0x000000 # 标签颜色
+    comment_text_color: 0x000000 # 注释颜色
+    border_color: 0xDEDEDE # 候选窗边框颜色
+    back_color: 0xDEDEDE # 背景颜色
+
+    # 普通候选项配色
+    # candidate_back_color: 0x2C2C2C # 非高亮候选背景颜色
+    # candidate_border_color:  # 边框
+    # candidate_shadow_color: 0x000000 # 阴影
+    candidate_text_color: 0x000000 # 非高亮候选文字颜色
+
+    # 编码区域配色
+    hilited_text_color: 0x000000 # 编码文字颜色
+    # hilited_back_color: 0xd4d4d4 # 编码背景颜色
+    # hilited_shadow_color: 0x000000 # 编码背景块阴影颜色
+
+    # 选中的候选区域配色
+    # hilited_mark_color: 0xD7B69C # 标签前的标记
+    hilited_label_color: 0xF0DE36 # 选中的标签颜色
+    # hilited_comment_text_color: 0xBF616A # 注释
+    hilited_candidate_text_color: 0x000000 # 高亮候选文字颜色
+    # hilited_candidate_border_color: 0x8FBCBB # 边框
+    hilited_candidate_back_color: 0xFFFFFF # 高亮候选背景颜色
+    # hilited_candidate_shadow_color: 0x000000 # 高亮候选背景块阴影颜色
+    # inline_preedit: false # false 时翻页箭头颜色，不设置则不显示箭头
+    # nextpage_color: 0xFFFFFF # 下一页
+    # prevpage_color: 0x606060 # 上一页
+    # candidate_format: "%c %@ " # 编号 %c 和候选词 %@ 前后的空间
+
+# [End of <preset_color_schemes>]
+
+  # "preset_color_schemes/macos_light": 
+    # macos_light: 
+    # name: macos_light
+    # author: NewXYe
+    # text_color: 0x424242  #  编码文字颜色（inline_preedit: false）
+    # back_color: 0xFFFFFF  #  候选窗底色
+    # label_color: 0x999999  #  序号颜色
+    # hilited_candidate_label_color: 0xFFFFFF  #  选中序号颜色
+    # shadow_color: 0x000000  #  候选窗阴影色，默认全透明（无阴影）
+    # border_color: 0xFFFFFF  #  外边框颜色
+    # hilited_text_color: 0xFFFFFF  #  选中编码颜色（inline_preedit: false）
+    # hilited_back_color: 0xD75A00  #  编码背景颜色（inline_preedit: false）
+    # hilited_shadow_color: 0x00000000  #  编码背景块阴影颜色
+    # hilited_candidate_text_color: 0xFFFFFF  #  选中文字颜色
+    # hilited_candidate_back_color: 0xD75A00  #  选中候选底色
+    # hilited_candidate_shadow_color: 0x000000  #  高亮候选背景块阴影颜色
+    # candidate_text_color: 0x3c3c3c  #  文字颜色
+    # candidate_back_color: 0xFFFFFF  #  候选项底色
+    # candidate_shadow_color: 0x00000000  #  非高亮候选背景块阴影颜色
+    # comment_text_color: 0x999999  #  标注颜色
+    # preedit_back_color:  #  拼音底色 （inline_preedit: false）
+    # hilited_comment_text_color: 0xFFFFFF  #  选中标注颜色
+
+  # "preset_color_schemes/macos_dark": 
+    # macos_dark: 
+    # name: macos_dark
+    # author: NewXYe
+    # text_color: 0x808080  #  编码文字颜色（inline_preedit: false）
+    # back_color: 0x1f1e2d  #  候选窗底色
+    # label_color: 0x999999  #  序号颜色
+    # hilited_candidate_label_color: 0xFFFFFF  #  选中序号颜色
+    # shadow_color: 0x000000  #  候选窗阴影色，默认全透明（无阴影）
+    # border_color: 0x050505  #  外边框颜色
+    # hilited_text_color: 0xFFFFFF  #  选中编码颜色（inline_preedit: false）
+    # hilited_back_color: 0xD75A00  #  编码背景颜色（inline_preedit: false）
+    # hilited_shadow_color: 0x00000000  #  编码背景块阴影颜色
+    # hilited_candidate_text_color: 0xFFFFFF  #  选中文字颜色
+    # hilited_candidate_back_color: 0xD75A00  #  选中候选底色
+    # hilited_candidate_shadow_color: 0x000000  #  高亮候选背景块阴影颜色
+    # candidate_text_color: 0xe9e9ea  #  文字颜色
+    # candidate_back_color: 0x1f1e2d  #  候选项底色
+    # candidate_shadow_color: 0x00000000  #  非高亮候选背景块阴影颜色
+    # comment_text_color: 0x999999  #  标注颜色
+    # preedit_back_color:  #  拼音底色 （inline_preedit: false）
+    # hilited_comment_text_color: 0x999999  #  选中标注颜色
+
+  # "preset_color_schemes/wechat_light": 
+    # wechat_light: 
+    # name: wechat_light
+    # author: NewXYe
+    # text_color: 0x424242  #  编码文字颜色（inline_preedit: false）
+    # back_color: 0xFFFFFF  #  候选窗底色
+    # label_color: 0x999999  #  序号颜色
+    # hilited_candidate_label_color: 0xFFFFFF  #  选中序号颜色
+    # shadow_color: 0x000000  #  候选窗阴影色，默认全透明（无阴影）
+    # border_color: 0xFFFFFF  #  外边框颜色
+    # hilited_text_color: 0x999999  #  选中编码颜色（inline_preedit: false）
+    # hilited_back_color: 0x79af22  #  编码背景颜色（inline_preedit: false）
+    # hilited_shadow_color: 0x00000000  #  编码背景块阴影颜色
+    # hilited_candidate_text_color: 0xFFFFFF  #  选中文字颜色
+    # hilited_candidate_back_color: 0x79af22  #  选中候选底色
+    # hilited_candidate_shadow_color: 0x000000  #  高亮候选背景块阴影颜色
+    # candidate_text_color: 0x3c3c3c  #  文字颜色
+    # candidate_back_color: 0xFFFFFF  #  候选项底色
+    # candidate_shadow_color: 0x00000000  #  非高亮候选背景块阴影颜色
+    # comment_text_color: 0x999999  #  标注颜色
+    # preedit_back_color:  #  拼音底色 （inline_preedit: false）
+    # hilited_comment_text_color: 0x999999  #  选中标注颜色
+
+  # "preset_color_schemes/wechat_dark": 
+  #   wechat_dark: 
+  #   name: wechat_dark
+  #   author: NewXYe
+  #   back_color: 0x151515  #  候选窗底色
+  #   hilited_candidate_back_color: 0x79af22  #  选中候选底色
+  #   label_color: 0x999999  #  序号颜色
+  #   hilited_candidate_label_color: 0xFFFFFF  #  选中序号颜色
+  #   candidate_text_color: 0xbbbbbb  #  文字颜色
+  #   hilited_candidate_text_color: 0xFFFFFF  #  选中文字颜色
+  #   comment_text_color: 0x999999  #  标注颜色
+  #   hilited_comment_text_color: 0xFFFFFF  #  选中标注颜色
+  #   text_color: 0xbbbbbb  #  编码文字颜色（inline_preedit: false）
+  #   hilited_text_color: 0x999999  #  选中编码颜色（inline_preedit: false）
+  #   candidate_back_color: 0x151515  #  候选项底色
+  #   preedit_back_color:  #  拼音底色 （inline_preedit: false）
+  #   hilited_back_color: 0x79af22  #  编码背景颜色（inline_preedit: false）
+  #   border_color: 0x292929  #  外边框颜色
+
+  #   shadow_color: 0x000000  #  候选窗阴影色，默认全透明（无阴影）
+  #   hilited_shadow_color: 0x00000000  #  编码背景块阴影颜色
+  #   hilited_candidate_shadow_color: 0x000000  #  高亮候选背景块阴影颜色
+  #   candidate_shadow_color: 0x00000000  #  非高亮候选背景块阴影颜色
+
+  # "preset_color_schemes/wechatgreen": 
+  #   wechatgreen: 
+  #   name: wechatgreen
+  #   author: NewXYe
+  #   candidate_format: "%c\u2005%@\u2005"  #  编号 %c 和候选词 %@ 前后的空间
+  #   back_color: 0xFFFFFF  #  候选窗底色
+  #   hilited_candidate_back_color: 0x79af22  #  选中候选底色
+  #   label_color: 0x999999  #  序号颜色
+  #   hilited_label_color: 0xFFFFFF  #  序号颜色
+  #   hilited_candidate_label_color: 0xFFFFFF  #  选中序号颜色
+  #   candidate_text_color: 0x3c3c3c  #  文字颜色
+  #   hilited_candidate_text_color: 0xFFFFFF  #  选中文字颜色
+  #   comment_text_color: 0x999999  #  标注颜色
+  #   hilited_comment_text_color: 0xFFFFFF  #  选中标注颜色
+  #   text_color: 0x424242  #  编码文字颜色（inline_preedit: false）
+  #   hilited_text_color: 0xFFFFFF  #  选中编码颜色（inline_preedit: false）
+  #   candidate_back_color: 0xFFFFFF  #  候选项底色
+  #   preedit_back_color:  #  拼音底色 （inline_preedit: false）
+  #   hilited_back_color: 0x79af22  #  编码背景颜色（inline_preedit: false）
+  #   border_color: 0x292929  #  0xeaeaea
+
+    # shadow_color: 0x000000  #  候选窗阴影色，默认全透明（无阴影）
+    # hilited_shadow_color: 0x00000000  #  编码背景块阴影颜色
+    # hilited_candidate_shadow_color: 0x000000  #  高亮候选背景块阴影颜色
+    # candidate_shadow_color: 0x00000000  #  非高亮候选背景块阴影颜色
+    
